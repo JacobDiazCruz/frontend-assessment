@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-
 const cardItems = [
   {
     imageSrc: "https://via.placeholder.com/400x300",
