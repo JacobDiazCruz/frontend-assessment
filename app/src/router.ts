@@ -1,7 +1,7 @@
 // router.ts
 import { createRouter, createWebHistory } from 'vue-router';
-import ExerciseOne from './ExerciseOne.vue';
-import ExerciseTwo from './ExerciseTwo.vue';
+import ExerciseOne from './components/ExerciseOne.vue';
+import ExerciseTwo from './components/ExerciseTwo.vue';
 
 const routes: Array<any> = [
   { path: '/', redirect: '/exercise-one' },

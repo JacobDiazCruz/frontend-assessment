@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import sections from "../data.json";
+import sections from "../../data.json";
 import { ref } from 'vue'
 
 const activeSection = ref(sections[0]);
