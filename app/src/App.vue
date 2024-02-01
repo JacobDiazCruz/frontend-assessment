@@ -1,6 +1,21 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
+
+const cardItems = [
+  {
+    imageSrc: "https://via.placeholder.com/400x300",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+  },
+  {
+    imageSrc: "https://via.placeholder.com/400x300",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  },
+  {
+    imageSrc: "https://via.placeholder.com/400x300",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+  }
+];
 </script>
 
 <template>
@@ -14,19 +29,9 @@ import TheWelcome from './components/TheWelcome.vue'
     </header>
 
     <section class="cards">
-      <div class="card">
-        <img src="https://via.placeholder.com/400x300" class="card__img" />
-        <p class="card__p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <button class="card__btn">READ MORE</button>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/400x300" class="card__img" />
-        <p class="card__p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <button class="card__btn">READ MORE</button>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/400x300" class="card__img" />
-        <p class="card__p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <div v-for="card in cardItems" class="card">
+        <img :src="card.imageSrc" class="card__img" />
+        <p class="card__p">{{ card.description }}</p>
         <button class="card__btn">READ MORE</button>
       </div>
     </section>
@@ -36,7 +41,8 @@ import TheWelcome from './components/TheWelcome.vue'
 <style scoped lang="scss">
 .header {
   background-image: url('https://via.placeholder.com/1920x650');
-  background-size: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
   height: 400px;
   display: flex;
   justify-content: center;
@@ -79,14 +85,43 @@ import TheWelcome from './components/TheWelcome.vue'
 
   .card {
     width: 300px;
+    height: 500px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
 
     &__img {
       width: 100%;
     }
 
     &__p {
+      margin-top: 1rem;
       text-align: center;
+      line-height: 1.75rem;
     }
+
+    &__btn {
+      border-radius: 25px;
+      margin: auto auto 0 auto;
+      padding: 0.25rem 1rem;
+      background-color: #FFF;
+      border: 2px solid #000;
+      letter-spacing: 1px;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .header__container {
+    width: 95%;
+  }
+
+  .cards {
+    flex-direction: column;
   }
 }
 </style>
